@@ -146,8 +146,8 @@ function handleButton() {
 
 	console.log("Handle");
 
+
         if(nama.value.length > 0){
-            if(alamat.value.length > 0){
                 if(ttl.value.length> 0){
                         if(agama.value.length>0){
                             if(button.innerHTML === "Kirim"){
@@ -165,10 +165,6 @@ function handleButton() {
                     //umur kosong
                     alert("ttl Harus Di Isi !")
                 }
-            }else{
-                //alamat kosong
-                alert("Alamat Harus Di Isi !")
-            }
         }else{
             //nama kosong
             alert("Nama Harus Di Isi !")
@@ -271,12 +267,13 @@ function editData(id){
             jenisKelamin[i].checked = true;
         }
     }
+
     console.log(list[editData].hobi);
-
-
         for(var i = 0; i < checkbox.length; i++){
-            console.log(checkbox[i].value);
+            console.log(checkbox[i].value +", ");
             if(checkbox[i].value == list[editData].hobi){
+                hobi[i].checked = true;
+            }else if(checkbox[i].value +", " == list[editData].hobi){
                 hobi[i].checked = true;
             }
         }
@@ -340,6 +337,7 @@ function editDataProses(id){
                 jenisKelamin[i].checked = false;
             }
             nama.value="";
+            agama.value="";
             alamat.value="";
             jenisKelamin.value="";
             tempat.value="";
