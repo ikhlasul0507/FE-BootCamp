@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Validation JavaScript</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="form.js" defer></script>
+ 
+</head>
+<body class="body">
+	<div class="container">
+        <h2>SIMULASI INPUT DATA DENGAN JAVASCRIPT</h2>
+        <hr>
+		<div class="form">
+			<div class="field">
+				<label class="label" for="name">Nama</label>
+				<input class="inputNama" type="text" id="nama" placeholder="Masukan Nama...">
+            </div>
+            
+			<div class="field">
+                <label class="label" for="umur">Tempat Tanggal Lahir</label>
+                <input class="inputTempat" type="text" id="tempat" placeholder="Masukan Tempat Lahir...">
+				<input class="inputUmur" id="ttl" placeholder="Masukan Tanggal Lahir..." type="text" onfocus="(this.type='date')">
+            </div>
+            <div class="field">
+                <label class="label" for="umur">Jenis Kelamin</label>
+                <input class="inputJK" type="radio" id="jenisKelamin"  name ="jenisKelamin" value="L" ><p class="textJK">Laki-laki</p>
+                <input class="inputJK" type="radio" id="jenisKelamin"  name ="jenisKelamin" value="P" ><p class="textJK">Perempuan</p>
+            </div>
+            <div class="field">
+                <label class="label" for="umur">Hobi</label>
+                <input class="inputHobi" type="checkbox" id="hobi"  name ="hobi" value="Berenang" ><p class="textJK">Berenang</p>
+                <input class="inputHobi" type="checkbox" id="hobi"  name ="hobi" value="Jogging" ><p class="textJK">Jogging</p>
+                <input class="inputHobi" type="checkbox" id="hobi"  name ="hobi" value="Bersepeda" ><p class="textJK">Bersepeda</p>
+                <input class="inputHobi" type="checkbox" id="hobi"  name ="hobi" value="Futsal" ><p class="textJK" >Futsal</p>
+            </div>
+            <div class="field">
+                <label class="label" for="name">Agama</label>
+                <select name="agama" class="inputAgama" id="agama">
+                    <option selected disabled>--Pilih Agama--</option>
+                    <option value="Islam">Islam</option>
+                    <option value="Kristen">Kristen</option>
+                    <option value="Hindu">Hindu</option>
+                    <option value="Katolik">Katolik</option>
+                    <option value="Protestan">Protestan</option>
+                </select>
+            </div>
+            <div class="field">
+                <label class="label" for="name">Alamat</label>
+                <textarea name="alamat" id="alamat" cols="30" rows="10" placeholder="Masukan Alamat...."></textarea>
+            </div>
+		<button class="button" id="button" onclick="handleButton()">Kirim</button>
+        </div>
+        <div class="pencarian">
+            <div class="field">
+                <label class="label" for="name">Pencarian</label>
+                <select class="cBer" id="selectPencarianData">
+                    <option selected disabled value="">--Pilih--</option>
+                    <option value="nama">Nama</option>
+                    <option value="alamat">Alamat</option>
+                    <option value="hobby">Hobby</option>
+                </select>
+                <input class="inputCari" type="text" id="pencarianData" placeholder="Masukan Nama, Alamat, Hobby...">
+            </div>
+        </div>
+		<table cellpadding="5" cellspacing="0" border="1" class="table">
+			<th class="tNumber th">No</th>
+            <th class="tText th">Nama</th>
+            <th class="tText th">Tempat Tanggal lahir</th> 
+            <th class="tNumber th">Umur</th>
+            <th class="tNumber th">Agama</th>
+            <th class="tNumber th">Jenis Kelamin</th>
+            <th class="tNumber th">Hobi</th>
+            <th class="tText th">Alamat</th>
+            <th class="tText th">Aksi</th>
+			<tbody id="bodyTable"></tbody>
+        </table>
+        <center>
+        <input type="button" class="pagi"  id="first" onclick="firstPage()" value="first" />
+        <input type="button" class="pagi"  id="previous" onclick="previousPage()" value="<=" />
+        <input type="button" class="pagi"  id="next" onclick="nextPage()" value="=>" />
+        <input type="button" class="pagi"  id="last" onclick="lastPage()" value="last" />
+	</div>
+</body>
+
+</html>
