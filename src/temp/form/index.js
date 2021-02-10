@@ -23,8 +23,10 @@ class Form extends Component {
             hobi : [],
             agama : "",
             alamat : "",
+            update:false
          }
     }
+ 
 
     setValue = el =>{
         console.log(el.target.value);
@@ -38,22 +40,43 @@ class Form extends Component {
         if (this.state.hobi.includes(event.target.value)) {
           newArray = newArray.filter(day => day !== event.target.value);
         } 
+        
         this.setState({
           hobi: newArray
         });
       };
+
+     
     render() { 
+
+        if("nama" in this.props.editData){
+            this.setState({
+                nama : this.props.editData.nama,
+                tempat : this.props.editData.tempat,
+                ttl : this.props.editData.ttl,
+                jenisKelamin : this.props.editData.jenisKelamin,
+                hobi : this.props.editData.hobi,
+                umur : this.props.editData.umur,
+                agama : this.props.editData.agama,
+                alamat : this.props.editData.alamat,
+
+            })
+            this.props.reset();
+        }
+
         const { nama, tempat, ttl, umur, jenisKelamin, hobi, agama, alamat}=this.state
+        console.log("Data Dari tabel : ",this.props.editData);
         return ( 
+            
             <>
-            <div className="form" >
-            <Nama className="inputNama" label="Nama" type="text" name="nama" placeholder="Masukan Nama" onChange={this.setValue}/>
-            <Nama className="inputTempat" label="Tempat" type="text" name="tempat" placeholder="Masukan Tempat" onChange={this.setValue}/>
-			<Nama className="inputUmur" label="Tanggal Lahir" type="date" onfocus="(this.type='date')" name="ttl" placeholder="Masukan Tanggal" onChange={this.setValue}/>
-            <Jenis name="jenisKelamin" onChange={this.setValue}/>
-            <Hobi name="hobi" onChange={ this.handleCheckboxChange} />
-            <Agama name="agama" onChange={this.setValue}/>
-            <Alamat name="alamat" onChange={this.setValue}/>
+            <div className="form">
+            <Nama className="inputNama" label="Nama" type="text" name="nama" value={nama} placeholder="Masukan Nama" onChange={this.setValue}/>
+            <Nama className="inputTempat" label="Tempat" type="text" name="tempat" value={tempat} placeholder="Masukan Tempat" onChange={this.setValue}/>
+			<Nama className="inputUmur" label="Tanggal Lahir" type="date" value={ttl} onfocus="(this.type='date')" name="ttl" placeholder="Masukan Tanggal" onChange={this.setValue}/>
+            <Jenis name="jenisKelamin" value={jenisKelamin} onChange={this.setValue}/>
+            <Hobi name="hobi" value={hobi} onChange={ this.handleCheckboxChange} />
+            <Agama name="agama" value={agama} onChange={this.setValue}/>
+            <Alamat name="alamat" value={alamat} onChange={this.setValue}/>
             <button className="button" id="button" onClick={() => this.props.save({ nama, tempat, ttl, umur, jenisKelamin, hobi, agama, alamat})}>Kirim</button>
             </div>
             <Pencarian/>
