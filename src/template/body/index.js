@@ -16,7 +16,8 @@ class Body extends Component {
             act: 0,
             index: "",
             statusLogin: false,
-            akses : 0
+            akses : 0,
+            namaMerk : ""
         }
     }
 
@@ -46,8 +47,8 @@ class Body extends Component {
             statusLogin: false,
             akses :0
         })
-
         alert("Anda Berhasil Keluar !")
+        return <Redirect to="/login"/>
     }
 
     //crud merk
@@ -250,7 +251,7 @@ class Body extends Component {
             penjualanData: {}
         })
     }
-
+    
     
     render() {
         return (

@@ -6,11 +6,22 @@ class Laporan extends Component {
     constructor(props) {
         super(props);
         this.state = { 
+            cari : ""
          }
     }
 
     print =() =>{
         window.print()
+    }
+
+    setValue = el => {
+        console.log(el.target.value);
+        this.setState({
+            [el.target.name]: el.target.value,
+            cari : el.target.value
+        })
+
+        console.log("cari",this.state.cari)
     }
 
     render() { 
@@ -27,7 +38,7 @@ class Laporan extends Component {
             <div className="form">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Pencarian Data Penjualan Mobil</label>
-                        <input type="date" class="form-control" name="nama" placeholder="Nama Merk Mobil" onChange={this.setValue} />
+                        <input type="date" class="form-control" name="cari" placeholder="Nama Merk Mobil" onChange={this.setValue} />
                     </div>
                     <button class="btn btn-danger" onClick={this.print}>Cetak Data</button>
                 </div>
@@ -43,6 +54,9 @@ class Laporan extends Component {
                             <th scope="col">Tanggal Penjualan</th>
                         </tr>
                     </thead>
+                    {
+                        this.props.penjualan[this.state.cari]
+                    }
                     <tbody>
                         {
                             this.props.penjualan.map(

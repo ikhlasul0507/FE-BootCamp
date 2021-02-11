@@ -33,7 +33,6 @@ class Merk extends Component {
         }
         const { nama } = this.state
         return (
-            
             <>
                 <hr />
                 <button className="keluar" onClick={this.props.keluar}>Keluar</button>
