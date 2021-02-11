@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Redirect} from "react-router-dom"
 
 import "../style.css"
 
@@ -19,6 +20,10 @@ class Merk extends Component {
     }
 
     render() {
+        if((this.props.statusLogin == false) || (this.props.aksesLogin == 2) || (this.props.aksesLogin == 0) ){
+            alert("Anda Belum Login Sebagai Sales !")
+            return <Redirect to="/login"/>
+        }
         console.log(this.props.editData)
         if("nama" in this.props.editData){
             this.setState({
@@ -28,6 +33,7 @@ class Merk extends Component {
         }
         const { nama } = this.state
         return (
+            
             <>
                 <hr />
                 <div className="form">

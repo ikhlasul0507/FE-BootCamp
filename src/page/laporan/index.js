@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Redirect} from "react-router-dom"
 
 class Laporan extends Component {
     constructor(props) {
@@ -10,6 +11,12 @@ class Laporan extends Component {
         window.print()
     }
     render() { 
+        console.log("status awal ",this.props.statusLogin)
+        console.log("akses awal ",this.props.aksesLogin)
+        if((this.props.statusLogin == false) || (this.props.aksesLogin == 1) || (this.props.aksesLogin == 0) ){
+            alert("Anda Belum Login Sebagai Pimpinan !")
+            return <Redirect to="/login"/>
+        }
         return ( 
             <>
             <hr/>

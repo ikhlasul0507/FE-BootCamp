@@ -4,9 +4,22 @@ import React, { Component } from 'react'
 class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            email : "",
+            password : "",
+            akses : ""
+        }
+    }
+    setValue = el => {
+        this.setState({
+            [el.target.name]: el.target.value
+        })
+        console.log(el.target.value)
     }
     render() {
+
+
+        const { email, password, akses} = this.state;
         return (
             <>
                 <hr />
@@ -20,14 +33,14 @@ class Login extends Component {
                         <input type="password" class="form-control" name="password" placeholder="Masukan Password" onChange={this.setValue} />
                     </div>
                     <div class="mb-3">
-                        <label for="disabledSelect" class="form-label">Pilih Merk Mobil</label>
+                        <label for="disabledSelect" class="form-label">Pilih Akses</label>
                         <select class="form-control" aria-label="Default select example" name="akses" onChange={this.setValue} >
                             <option selected>--Pilih Akses--</option>
-                            <option value="sales">Sales</option>
-                            <option value="pimpinan">Pimpinan</option>
+                            <option value="1">Sales</option>
+                            <option value="2">Pimpinan</option>
                         </select>
                     </div>
-                    <button class="btn btn-primary">Masuk Aplikasi</button>
+                    <button class="btn btn-primary" onClick={() => this.props.doLogin(email, password, akses)}>Masuk Aplikasi</button>
                 </div>
             </>
         );

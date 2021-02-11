@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Redirect} from "react-router-dom"
 
 class Type extends Component {
     constructor(props) {
@@ -15,6 +16,12 @@ class Type extends Component {
         })
     }
     render() { 
+
+        if((this.props.statusLogin == false) || (this.props.aksesLogin == 2) || (this.props.aksesLogin == 0) ){
+            alert("Anda Belum Login Sebagai Sales !")
+            return <Redirect to="/login"/>
+        }
+
         if("namaType" in this.props.editDataType){
             this.setState({
                 namaType : this.props.editDataType.namaType

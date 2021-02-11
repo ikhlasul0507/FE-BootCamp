@@ -15,9 +15,38 @@ class Body extends Component {
             penjualanData: {},
             act: 0,
             index: "",
+            statusLogin: false,
+            akses : 0
         }
     }
 
+    doLogin = (email, password, akses) =>{
+        
+        if((email == "amal@gmail.com") && (password == "12345") && (akses == 1)){
+           
+            this.setState({
+                statusLogin : true,
+                akses : akses
+            })
+            // this.props.changeLogin();
+            alert("Selamat Anda Berhasil Login Sales !");
+            console.log("status Login : ", this.state.statusLogin)
+            console.log("Akses Login : ", this.state.akses)
+        }else if((email == "ikhlasul@gmail.com") && (password == "12345") && (akses ==2)){
+            this.setState({
+                statusLogin: true,
+                akses :akses
+            })
+            // this.props.changeLogin();
+            alert("Selamat Anda Berhasil Login Sebagai Pimpinan !");
+            console.log("status Login : ", this.state.statusLogin)
+            console.log("Akses Login : ", this.state.akses)
+        }else{
+            alert("Data Masukan Salah !")
+        }
+    }
+
+    //crud merk
     save = merk => {
         const { nama } = merk
 
@@ -76,7 +105,7 @@ class Body extends Component {
         })
     }
 
-
+    //crud type
     saveType = type => {
         const { namaType } = type
 
@@ -135,6 +164,7 @@ class Body extends Component {
         })
     }
 
+    //crud penjualan
     savePenjualan = penjualan => {
         const { namaMobil, namaMerk, namaType, harga, tanggal } = penjualan
 
@@ -229,7 +259,10 @@ class Body extends Component {
                     edit={this.editData} 
                     editData={this.state.merkData} 
                     merk={this.state.merk}
-                    reset={this.reset} />
+                    reset={this.reset} 
+                    statusLogin ={this.state.statusLogin}
+                    aksesLogin = {this.state.akses}
+                    />
                 </Route>
                 <Route path="/type">
                     <Type 
@@ -238,7 +271,10 @@ class Body extends Component {
                     editType={this.editDataType} 
                     editDataType={this.state.typeData} 
                     type={this.state.type} 
-                    resetType={this.resetType} />
+                    resetType={this.resetType}
+                    statusLogin ={this.state.statusLogin}
+                    aksesLogin = {this.state.akses}
+                    />
                 </Route>
                 <Route path="/penjualan">
                     <Penjualan 
@@ -250,15 +286,23 @@ class Body extends Component {
                     editDataPenjualan={this.state.penjualanData}
                     penjualan = {this.state.penjualan}
                     resetPenjualan={this.resetPenjualan}
+                    statusLogin={this.state.statusLogin}
+                    aksesLogin = {this.state.akses}
                     />
                 </Route>
                 <Route path="/laporan">
                     <Laporan 
                     penjualan = {this.state.penjualan}
+                    statusLogin ={this.state.statusLogin}
+                    aksesLogin = {this.state.akses}
                     />
                 </Route>
                 <Route path="/login">
-                    <Login />
+                    <Login 
+                     statusLogin={this.state.statusLogin}
+                     aksesLogin = {this.state.akses}
+                     doLogin ={this.doLogin}
+                    />
                 </Route>
             </Switch>
         );

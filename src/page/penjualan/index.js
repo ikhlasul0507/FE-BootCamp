@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect} from "react-router-dom";
 
 class Penjualan extends Component {
     constructor(props) {
@@ -20,6 +21,11 @@ class Penjualan extends Component {
     }
 
     render() {
+        if((this.props.statusLogin == false) || (this.props.aksesLogin == 2) || (this.props.aksesLogin == 0) ){
+            alert("Anda Belum Login Sebagai Sales !")
+            return <Redirect to="/login"/>
+        }
+
         console.log("edit",this.props.editDataPenjualan)
         if("namaMobil" in this.props.editDataPenjualan){
             this.setState({
