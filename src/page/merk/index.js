@@ -36,6 +36,7 @@ class Merk extends Component {
             
             <>
                 <hr />
+                <button className="keluar" onClick={this.props.keluar}>Keluar</button>
                 <div className="form">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nama Merk</label>

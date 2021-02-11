@@ -21,3 +21,10 @@ img{
     margin-top: 20px;
     border-radius: 10px;
 }
+.keluar{
+    float: right;
+    margin-right: 10%;
+    background-color: rgb(250, 227, 16);
+    color: rgb(3, 3, 3);
+    border-radius: 10px;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Redirect} from "react-router-dom"
-
+import "../style.css";
 class Type extends Component {
     constructor(props) {
         super(props);
@@ -33,6 +33,7 @@ class Type extends Component {
         return ( 
             <>
              <hr />
+             <button className="keluar" onClick={this.props.keluar}>Keluar</button>
                 <div className="form">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nama Type</label>

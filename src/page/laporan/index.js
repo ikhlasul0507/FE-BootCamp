@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 import {Redirect} from "react-router-dom"
+import "../style.css";
 
 class Laporan extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+         }
     }
 
     print =() =>{
         window.print()
     }
+
     render() { 
         console.log("status awal ",this.props.statusLogin)
         console.log("akses awal ",this.props.aksesLogin)
@@ -20,6 +23,7 @@ class Laporan extends Component {
         return ( 
             <>
             <hr/>
+            <button className="keluar" onClick={this.props.keluar}>Keluar</button>
             <div className="form">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Pencarian Data Penjualan Mobil</label>

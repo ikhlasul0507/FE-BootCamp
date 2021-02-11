@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route , Redirect} from "react-router-dom";
 
 import { Home, Merk, Type, Penjualan, Laporan, Login } from "../../page"
 
@@ -28,10 +28,7 @@ class Body extends Component {
                 statusLogin : true,
                 akses : akses
             })
-            // this.props.changeLogin();
             alert("Selamat Anda Berhasil Login Sales !");
-            console.log("status Login : ", this.state.statusLogin)
-            console.log("Akses Login : ", this.state.akses)
         }else if((email == "ikhlasul@gmail.com") && (password == "12345") && (akses ==2)){
             this.setState({
                 statusLogin: true,
@@ -39,11 +36,18 @@ class Body extends Component {
             })
             // this.props.changeLogin();
             alert("Selamat Anda Berhasil Login Sebagai Pimpinan !");
-            console.log("status Login : ", this.state.statusLogin)
-            console.log("Akses Login : ", this.state.akses)
+            return <Redirect to="/laporan"/>
         }else{
             alert("Data Masukan Salah !")
         }
+    }
+    keluar = () => {
+        this.setState({
+            statusLogin: false,
+            akses :0
+        })
+
+        alert("Anda Berhasil Keluar !")
     }
 
     //crud merk
@@ -262,6 +266,7 @@ class Body extends Component {
                     reset={this.reset} 
                     statusLogin ={this.state.statusLogin}
                     aksesLogin = {this.state.akses}
+                    keluar = {this.keluar}
                     />
                 </Route>
                 <Route path="/type">
@@ -274,6 +279,7 @@ class Body extends Component {
                     resetType={this.resetType}
                     statusLogin ={this.state.statusLogin}
                     aksesLogin = {this.state.akses}
+                    keluar = {this.keluar}
                     />
                 </Route>
                 <Route path="/penjualan">
@@ -288,6 +294,7 @@ class Body extends Component {
                     resetPenjualan={this.resetPenjualan}
                     statusLogin={this.state.statusLogin}
                     aksesLogin = {this.state.akses}
+                    keluar = {this.keluar}
                     />
                 </Route>
                 <Route path="/laporan">
@@ -295,6 +302,7 @@ class Body extends Component {
                     penjualan = {this.state.penjualan}
                     statusLogin ={this.state.statusLogin}
                     aksesLogin = {this.state.akses}
+                    keluar = {this.keluar}
                     />
                 </Route>
                 <Route path="/login">

@@ -31,7 +31,7 @@ class Navigation extends Component {
                     <Menu redirect={() => changePage("laporan")}>Laporan</Menu>
                 </Link>
                 <Link to="/login">
-                    <Menu redirect={() => changePage("login")}>Login</Menu>
+                    <Menu redirect={() => changePage("login")}>Masuk</Menu>
                 </Link>
             </div>
             </>
