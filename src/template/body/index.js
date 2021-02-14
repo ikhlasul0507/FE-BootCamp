@@ -29,6 +29,8 @@ class Body extends Component {
                 statusLogin : true,
                 akses : akses
             })
+            localStorage.setItem("LoginStatus", this.state.statusLogin);
+            localStorage.setItem("LoginAkses", this.state.akses);
             alert("Selamat Anda Berhasil Login Sales !");
         }else if((email == "ikhlasul@gmail.com") && (password == "12345") && (akses ==2)){
             this.setState({
