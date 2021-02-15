@@ -9,6 +9,7 @@ const dataBuahTabel = document.querySelector('#dataBuah')
 var idBuah = 1;
 
 var buah = [];
+
 init = () => {
     validasiAll();
 }
