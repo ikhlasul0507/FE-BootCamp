@@ -78,7 +78,7 @@ clearForm = () => {
 }
 
 clearFormBeli =()=>{
-    namaBuahBeli.value =""
+    namaBuahBeli.value ="--Pilih Nama Buah--"
     stokBuahBeli.value = ""
 }
 tampil = () => {
@@ -89,7 +89,7 @@ tampil = () => {
                 <td>${data.idBuah}</td>
                 <td>${data.namaBuah}</td>
                 <td>${data.stokBuah}</td>
-                <td>${data.hargaBuah}</td>
+                <td>Rp.${data.hargaBuah},--</td>
                 <td>
                 <button onclick="edit(${data.idBuah})">Edit</button>
                 <button onclick="hapus(${data.idBuah})">Hapus</button>
@@ -100,7 +100,7 @@ tampil = () => {
 }
 
 tampilButton = () => {
-    namaBuahBeli.innerHTML = "<option value='0'>--Pilih--</option>",
+    namaBuahBeli.innerHTML = "<option value='0'>--Pilih Nama Buah--</option>",
         buah.forEach((data) => {
             namaBuahBeli.innerHTML += `
             <option value='${data.namaBuah}'>${data.namaBuah}</option>
