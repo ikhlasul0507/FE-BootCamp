@@ -1,3 +1,4 @@
+
 //variabel pada javascript
 
 //var adalah global variabel dan penggunaan memori menjadi tinggi
@@ -264,9 +265,85 @@ orang.map(function(data){
 var dataSlice = orang.slice(0,10)
 console.log("Data Slice :", dataSlice)
 
-3
+
 //splice
 orang.splice(1,0,agung)
 console.log("Data Splice :", orang)
 
+//materi call back
 
+const fnUtama = function (paramCb){
+    console.log("Di running di fnUtama")
+    console.log("Hasil :", paramCb)
+    return paramCb
+}
+
+const fnLogic = function(param1,param2, cb){
+    const total = 3.14 * param1 * param2
+    console.log("Di Running di fnLogic")
+    // return cb(total)
+}
+
+const hasilKali = fnLogic(function (paramCb){
+    console.log("Di Runnning di FnUtama")
+    console.log("Hasil : ", paramCb)
+})
+
+//call back function
+
+const fakeMap = function(cb){
+    return cb([1,2,3],0,"bebas")
+}
+
+const hasilMap = fakeMap(function(data, idx){
+    console.log("Data", data);
+    console.log("idx", idx);
+    if(data) return data
+    return "Nan"
+})
+// console.log("Hasil Kali", hasilKali)
+// fnLogic(22,14,fnUtama)
+
+class Test{
+    test(){
+        return "T E S T"
+    }
+}
+
+//js dalam file js
+const newClass = new Test()
+console.log("Test Class :", newClass.test())
+
+
+//class dari file lain di js
+const mod = new Modules();
+//panggil method dari class file lain
+console.log("mod :", mod.mods())
+
+//promise menjalankan secara berurutan atau asincronis
+
+const promiseTest = new Promise(function(resv, rejct){
+    if(1+2 >5) rejct("Salah")
+    else resv("Benar")
+})
+promiseTest
+    .then(function(status){
+        console.log("promise then : ", status)
+        return "OKE"
+    })
+    .then((statusOke)=>{
+        console.log("setelah then awal :", statusOke)
+    })
+    .catch(function(errorMessage){
+        console.log("promise catch : ", errorMessage)
+    })
+    .finally(function(){
+        console.log("Promise Finally")
+    })
+
+    //function js to have promise
+fetch('https://jsonplaceholder.typicode.com/users')
+  .then(response => response.json())
+  .then(json => console.log(json))
+  .catch(error => console.error("Eror : ", error))
+  .finally()
